@@ -3,7 +3,12 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
-#include <windows.h>
+#ifdef _WIN32
+    #include <windows.h>
+#else
+    #include <unistd.h>
+#endif
+
 
 #define MAX_EVENTS 31
 #define MAX_DESCRIPTION_LENGTH 100
@@ -627,7 +632,7 @@ int main()
 {
     int year;
 
-    system("cls");
+    system("clear");
     // Sample events for demonstration
     // Changing colour of Enter key
     yellow();
@@ -673,12 +678,12 @@ int main()
     scanf("%d", &x);
     if (x != 1 && x != 2 && x != 3 && x != 4 && x!=5)
     {
-        system("cls");
+        system("clear");
         printf("enter a valid number");
     }
     if (x == 3)
     {
-        system("cls");
+        system("clear");
         printf("Enter a year: \n\n");
         scanf("%d", &year);
         // Function Call to print complete year
@@ -774,7 +779,7 @@ int main()
     {
 
         struct Date date;
-        system("cls");
+        system("clear");
 
         // Input date to check events
         blue();
